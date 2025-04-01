@@ -1,0 +1,101 @@
+
+1. Building Design Standards (GB 50096-2011): Minimum floor height for residential buildings is 2.8 meters.
+2. Urban Planning Law (2008 Revision): Environmental impact assessments required for projects larger than 50,000 sq. meters.
+3. Fire Safety Regulations (GB 50016-2014): High-rise buildings (>100m) must include fire-resistant stairwells.
+4. Structural Safety Codes: Buildings must be designed to withstand seismic activity in earthquake-prone zones.
+5. Accessibility Standards: Buildings must meet requirements for wheelchair access and other disabilities.
+6. Zoning Regulations: Design and construction must comply with zoning laws for residential, commercial, or industrial areas.
+7. Sustainability Regulations: At least 30% of materials in a project must be recycled or renewable.
+8. Historical Preservation: Buildings in historical districts must comply with specific renovation rules.
+9. Energy Efficiency Standards: Buildings must meet energy-saving standards, including insulation, windows, and heating systems.
+10. Roof Gardens: High-rise buildings in major cities must include rooftop gardens for environmental and aesthetic purposes.
+11. Safety Distance Regulations: High-rise buildings should maintain a minimum distance of 10 meters from adjacent properties.
+12. Earthquake-resistant Construction: Buildings in seismic zones must be constructed with materials and techniques that ensure resilience during earthquakes.
+13. Water Drainage Systems: Buildings must have proper drainage systems to prevent flooding in stormwater conditions.
+14. Ventilation Standards: Buildings must ensure adequate natural or mechanical ventilation, especially in commercial and industrial zones.
+15. Fire Escape Routes: All public buildings must include clearly marked and accessible emergency exits and fire escapes.
+16. Noise Reduction Regulations: Soundproofing materials must be used in residential areas to reduce noise pollution.
+17. Solar Panel Requirements: New buildings must install solar panels or be designed to allow for easy installation.
+18. Flood Zone Building Restrictions: Construction in flood-prone areas must follow special guidelines to prevent water damage.
+19. Building Energy Labels: All new buildings must be rated for energy efficiency and displayed prominently.
+20. Electrical System Codes: All electrical systems in buildings must meet national safety and performance standards.
+21. Asbestos-free Regulations: Construction materials should not contain asbestos due to health hazards.
+22. Elevator Safety Standards: Elevators must be installed according to strict safety protocols and maintenance schedules.
+23. Green Building Standards (GB/T 50378-2019): Requirements for sustainable construction practices, such as using low-impact materials.
+24. Underground Construction Regulations: Building foundations and basements in seismic zones must be reinforced to withstand shifting ground.
+25. Heating System Standards: Building heating systems must meet energy-saving requirements, using modern, eco-friendly technologies.
+26. Water Conservation Codes: Buildings must include systems such as rainwater harvesting and low-flow fixtures to conserve water.
+27. Stormwater Management: Building sites must integrate systems to manage runoff and prevent local flooding.
+28. Wind Resistance Requirements: High-rise buildings must be designed to withstand wind pressure, particularly in coastal regions.
+29. Parking Space Standards: Commercial buildings must include a minimum number of parking spaces based on their size and location.
+30. Indoor Air Quality Standards: Building materials must meet low-VOC (volatile organic compounds) standards to improve indoor air quality.
+31. Structural Integrity Tests: Regular structural inspections and tests must be conducted to ensure building safety over time.
+32. Pedestrian Pathways: Large commercial buildings must provide safe and accessible pathways for pedestrians.
+33. Elevator and Stairwell Design: Elevators and stairwells must adhere to strict design codes to ensure safety in emergencies.
+34. Building Fireproofing: All buildings must be constructed using materials that are resistant to fire and extreme heat.
+35. Building Insulation Requirements: Minimum insulation standards are mandatory to ensure energy efficiency and reduce heating/cooling costs.
+36. Smart Building Systems: Buildings should integrate smart technology to optimize energy consumption and automation.
+37. Noise Pollution Controls: Construction projects near residential areas must include noise-reducing measures during construction.
+38. Waste Disposal Codes: Buildings must have designated areas for waste disposal, recycling, and waste management.
+39. Lighting Standards: Energy-efficient lighting must be used throughout commercial and public buildings to reduce electricity usage.
+40. Landscaping Codes: Landscaping around buildings must include sustainable practices, such as xeriscaping or drought-tolerant plants.
+41. Structural Safety for High Winds: Buildings in coastal or windy areas must adhere to specific safety standards to resist wind pressure.
+42. Public Access Standards: Commercial buildings must be accessible to people with disabilities, including ramps and signage.
+43. Building Site Zoning Restrictions: Buildings must comply with zoning laws that dictate building heights and land usage.
+44. Concrete Strength Requirements: Building materials such as concrete must meet minimum strength standards to prevent structural failure.
+45. Fire Alarm System Standards: Every building must have a fire alarm system that complies with the national fire safety codes.
+46. Seismic Hazard Zones: Special construction standards apply to buildings located in regions with high seismic activity.
+47. Energy-efficient Windows: New buildings must use energy-efficient windows to minimize heat loss and reduce energy consumption.
+48. Building Height Restrictions: Zoning laws typically set restrictions on building heights, especially in residential areas.
+49. Hazardous Materials Handling: Construction and renovation projects must follow safety protocols for handling hazardous materials.
+50. Site Drainage and Erosion Control: Sites must incorporate measures to control erosion and ensure proper drainage during construction.
+51. Pollution Control Measures: Construction projects must adhere to environmental standards to reduce air, water, and soil pollution.
+52. Historical Site Preservation Codes: Renovations in designated historical districts must preserve the architectural integrity of buildings.
+53. Steel Structural Component Regulations: Steel used in building construction must meet strength and fireproofing standards.
+54. Thermal Insulation Standards: Buildings must be designed to minimize heat loss during winter and cooling loss during summer.
+55. Air Conditioning System Standards: Air conditioning systems must meet efficiency standards and use refrigerants that are environmentally friendly.
+56. Wastewater Treatment Systems: Buildings must have systems to treat and manage wastewater, particularly in remote areas.
+57. Balcony and Deck Regulations: Balconies and decks must be constructed with safety features such as railings and non-slip surfaces.
+58. Public Restroom Standards: Public buildings must meet specific requirements for accessibility, hygiene, and facilities in restrooms.
+59. Sustainability Certifications: Buildings aiming for sustainable design must meet standards set by organizations like LEED or BREEAM.
+60. Pedestrian Safety Codes: Safety standards must be followed for pedestrian walkways and street crossings near commercial buildings.
+61. Elevator Safety Regulations: Elevators must be equipped with backup power systems in case of electrical failure.
+62. Green Roofs: Commercial and residential buildings in urban areas may be required to have green roofs for environmental sustainability.
+63. Snow Load Regulations: In areas with heavy snowfall, buildings must be designed to withstand the weight of accumulated snow.
+64. Steel Reinforced Concrete Standards: Concrete used in structural applications must be reinforced with steel to meet strength and durability requirements.
+65. Non-toxic Building Materials: New construction must use non-toxic materials, especially in schools, hospitals, and homes.
+66. Sustainable Timber Use: Timber used in construction must come from sustainably managed forests or certified sources.
+67. Building Waste Recycling: Construction waste must be recycled, with materials like metal, glass, and wood being reused whenever possible.
+68. Emergency Access Regulations: Buildings must have proper emergency vehicle access routes in case of fires or accidents.
+69. Vertical Gardening Regulations: Buildings may include vertical gardens on facades to promote sustainability and improve air quality.
+70. Public Building Design Standards: Public buildings must comply with specific aesthetic, functional, and structural standards.
+71. Building Ventilation Code: All buildings must have proper ventilation to reduce the accumulation of indoor pollutants.
+72. Insulation for Soundproofing: Buildings in noisy areas must incorporate soundproofing techniques to reduce external noise pollution.
+73. Siting and Orientation of Buildings: Buildings must be strategically oriented to maximize natural light and reduce energy consumption.
+74. Commercial Kitchen Ventilation: Restaurants and commercial kitchens must meet ventilation standards to reduce fire hazards and indoor air pollution.
+75. Large-scale Construction Regulations: Large projects must adhere to special standards related to project management, construction timelines, and impact assessments.
+76. Building Safety Codes for High Winds: Coastal areas require buildings to be designed to resist strong winds and storms.
+77. Outdoor Lighting Regulations: Outdoor lighting on buildings must minimize light pollution and meet energy efficiency standards.
+78. Hazardous Waste Storage Codes: Hazardous waste must be stored in secure areas and managed according to strict guidelines.
+79. Parking Lot Lighting Standards: Parking lots must be adequately lit for safety and security purposes.
+80. Commercial Building Air Quality: Offices and commercial spaces must maintain high standards of indoor air quality.
+81. Water Recycling Systems: Large buildings should incorporate water recycling systems to reduce overall water consumption.
+82. Heating, Ventilation, and Air Conditioning (HVAC) Standards: HVAC systems must meet energy efficiency and air quality standards.
+83. Refrigeration System Requirements: Refrigeration systems in commercial spaces must comply with environmental safety standards.
+84. Fire Safety Compliance: All buildings must meet fire safety compliance, including installation of sprinklers, alarms, and emergency exits.
+85. Earthquake-proof Materials: Construction in earthquake zones must prioritize materials that are resilient to seismic activity.
+86. Light and Air Code: Buildings must provide access to natural light and ensure adequate ventilation for tenants.
+87. Solar Heating Standards: Buildings may need to incorporate solar water heating systems to meet energy efficiency standards.
+88. Building Foundations for Soft Soil: Buildings constructed on soft soil must include reinforced foundations to prevent settling.
+89. Rainwater Harvesting Standards: Buildings may be required to incorporate rainwater harvesting systems to reduce water usage.
+90. Roof Insulation Standards: Roof insulation must meet specific standards to reduce heat gain or loss, contributing to energy efficiency.
+91. Public Building Space Standards: Public buildings should provide a certain amount of space per person for comfort and safety.
+92. Acoustic Design Regulations: Acoustic regulations must be followed to ensure noise control and proper sound insulation.
+93. Building Waste Disposal Regulations: Buildings must have waste management systems to properly dispose of garbage, recyclables, and compostable materials.
+94. Structural Load-bearing Standards: Structural elements must meet strength requirements to bear weight, including snow, wind, and equipment.
+95. Architectural Barrier-free Design: Buildings must be designed to accommodate persons with disabilities, including elevators, ramps, and wide doors.
+96. Fire Safety Testing for Materials: All construction materials must undergo fire safety testing to ensure their performance under fire conditions.
+97. Construction Site Safety Regulations: Construction sites must adhere to strict safety standards to protect workers and the public.
+98. Water Conservation in Landscape Design: Landscapes around buildings must incorporate water-efficient practices, such as drip irrigation and drought-tolerant plants.
+99. Thermal Comfort Standards: Indoor spaces must be designed to maintain thermal comfort throughout the year.
+100. Construction Waste Management: Construction projects must have systems in place to manage and reduce waste during building and demolition.
