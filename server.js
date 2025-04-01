@@ -4,7 +4,7 @@ const fs = require('fs');
 const { v4: uuidv4 } = require('uuid');
 const { QdrantClient } = require('@qdrant/js-client-rest');
 const { pipeline: transformersPipeline } = require('@xenova/transformers');
-
+const path = require('path');
 const app = express();
 const upload = multer({ dest: 'uploads/' });
 const COLLECTION_NAME = "legal_documents";
@@ -139,5 +139,12 @@ app.use((err, req, res, next) => {
   console.error('Unhandled error:', err);
   res.status(500).json({ error: 'Internal server error' });
 });
+
+app.use(express.static(path.join(__dirname, 'public')));
+
+app.get('/', (req, res) => {
+    res.sendFile(path.join(__dirname, 'public', 'index.html'));
+});
+
 
 app.listen(8080, () => console.log('Server running on http://localhost:8080'));
