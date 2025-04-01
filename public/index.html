@@ -285,6 +285,85 @@
                 max-width: 90%;
             }
         }
+
+        /* Image Generation Styles */
+        .message .image-prompt-info {
+            margin-bottom: 15px;
+            padding: 10px;
+            background-color: #1e293b;
+            border-radius: 8px;
+        }
+
+        .message .positive-prompt {
+            color: #4CAF50;
+            margin: 8px 0;
+            padding: 8px;
+            background-color: #f0f8f0;
+            border-radius: 4px;
+            font-size: 0.9em;
+        }
+
+        .message .image-result {
+            margin: 15px 0;
+            text-align: center;
+        }
+
+        .message .image-result img {
+            max-width: 100%;
+            max-height: 400px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .message .image-meta {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            justify-content: center;
+            margin-top: 10px;
+            font-size: 0.85em;
+        }
+
+        .message .meta-item {
+            padding: 5px 10px;
+            background-color: #ef4444;
+            border-radius: 4px;
+        }
+
+        .message .processing-message {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .message .spinner {
+            border: 3px solid #f3f3f3;
+            border-top: 3px solid #3498db;
+            border-radius: 50%;
+            width: 20px;
+            height: 20px;
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            0% {
+                transform: rotate(0deg);
+            }
+
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+
+        .message .error-title {
+            font-weight: bold;
+            color: #F44336;
+            margin-bottom: 5px;
+        }
+
+        .message .error-detail {
+            font-size: 0.9em;
+        }
     </style>
 </head>
 
@@ -333,7 +412,6 @@
             const now = new Date();
             return now.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
         }
-
         async function sendQuery() {
             const queryInput = document.getElementById('query');
             const query = queryInput.value.trim();
@@ -354,9 +432,6 @@
             queryInput.value = '';
             sendButton.disabled = true;
 
-            // Scroll to bottom
-            chatBox.scrollTop = chatBox.scrollHeight;
-
             // Show typing indicator
             const typingId = 'typing-' + Date.now();
             chatBox.innerHTML += `
@@ -368,8 +443,6 @@
             </div>
         </div>
     `;
-
-            // Scroll to bottom again to show typing indicator
             chatBox.scrollTop = chatBox.scrollHeight;
 
             try {
@@ -379,7 +452,6 @@
                     const data = await response.json();
                     const textResponse = data.results?.[0]?.text || "I couldn't find any information on that topic.";
 
-                    // Replace typing indicator with response
                     document.getElementById(typingId).outerHTML = `
                 <div class='message bot'>
                     ${textResponse}
@@ -388,53 +460,52 @@
             `;
                 }
                 else if (mode === "image") {
-                    // First call to magic prompt API to generate the prompt
-                    const promptResponse = await fetch('http://58.61.147.179:58109/magic_prompt/generate/', {
-                        method: 'POST',
-                        headers: {
-                            'accept': 'application/json',
-                            'Content-Type': 'application/json'
-                        },
-                        body: JSON.stringify({
-                            text_instruction: query,
-                            ref_image_url: "",
-                            user_locale: "en"
-                        })
-                    });
+                    // First show prompt generation in progress
+                    document.getElementById(typingId).outerHTML = `
+                <div class='message bot' id="${typingId}">
+                    <div class='processing-message'>
+                        <div class='spinner'></div>
+                        Generating image prompt...
+                    </div>
+                    <span class='message-time'>${getCurrentTime()}</span>
+                </div>
+            `;
+                    chatBox.scrollTop = chatBox.scrollHeight;
 
-                    const promptData = await promptResponse.json();
-
-                    if (!promptData.positive_prompt) {
-                        throw new Error("Failed to generate image prompt");
-                    }
-
-                    // Then call your image generation API with the generated prompt
-                    response = await fetch(`/generate-image?query=${encodeURIComponent(promptData.positive_prompt)}`);
+                    // Call our new image generation endpoint
+                    response = await fetch(`/generateImage?query=${encodeURIComponent(query)}`);
                     const data = await response.json();
 
-                    // Replace typing indicator with response
-                    if (data.image_url) {
-                        document.getElementById(typingId).outerHTML = `
-                    <div class='message bot'>
-                        Here's the image you requested based on: "${query}"
-                        <img src="${data.image_url}" alt="Generated Image">
-                        <span class='message-time'>${getCurrentTime()}</span>
-                    </div>
-                `;
-                    } else {
-                        document.getElementById(typingId).outerHTML = `
-                    <div class='message bot'>
-                        Sorry, I couldn't generate that image. Please try again.
-                        <span class='message-time'>${getCurrentTime()}</span>
-                    </div>
-                `;
+                    if (data.error) {
+                        throw new Error(data.error);
                     }
+
+                    // Display the generated image with all metadata
+                    let responseHTML = `
+                <div class='message bot'>
+                    <div class='image-prompt-info'>
+                        <strong>Generated from:</strong> "${query}"
+                        <div class='positive-prompt'>${data.full_response.data.projectGenerationModel[0].projectMedias[0].text}</div>
+                    </div>
+                    <div class='image-result'>
+                        <img src="${data.image_url}" alt="Generated image" onerror="this.onerror=null;this.src='fallback-image.jpg';">
+                        <div class='image-meta'>
+                            <div class='meta-item'><strong>Style:</strong> ${data.full_response.data.projectGenerationModel[0].projectMedias[0].style}</div>
+                            <div class='meta-item'><strong>Camera:</strong> ${data.full_response.data.projectGenerationModel[0].projectMedias[0].camera}</div>
+                            <div class='meta-item'><strong>Atmosphere:</strong> ${data.full_response.data.projectGenerationModel[0].projectMedias[0].atmosphere}</div>
+                        </div>
+                    </div>
+                    <span class='message-time'>${getCurrentTime()}</span>
+                </div>
+            `;
+
+                    document.getElementById(typingId).outerHTML = responseHTML;
                 }
             } catch (error) {
-                // Replace typing indicator with error message
                 document.getElementById(typingId).outerHTML = `
-            <div class='message bot'>
-                Sorry, I'm having trouble connecting right now. Please try again later.
+            <div class='message bot error'>
+                <div class='error-title'>${mode === "image" ? "Image Generation" : "Search"} Failed</div>
+                <div class='error-detail'>${error.message}</div>
                 <span class='message-time'>${getCurrentTime()}</span>
             </div>
         `;
@@ -445,7 +516,11 @@
                 chatBox.scrollTop = chatBox.scrollHeight;
             }
         }
-        // Set up event listeners
+
+        // Helper function to format time
+        function getCurrentTime() {
+            return new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+        }
         document.getElementById('query').addEventListener('keypress', handleKeyPress);
         document.getElementById('query').focus();
     </script>
