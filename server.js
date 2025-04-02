@@ -169,22 +169,10 @@ app.get('/generateImage', async (req, res) => {
       SELECT * FROM airi_main.camera_view WHERE id = ?
     `, [template.camera_id]);
 
-    const [styleRows] = await AppDataSource.query(`
-      SELECT * FROM airi_main.style WHERE Id = ?
-    `, [template.style_id]);
-
-    const [atmosphereRows] = await AppDataSource.query(`
-      SELECT * FROM airi_main.camera_view_url WHERE id = ?
-    `, [template.atmosphere_id]);
-
-    const [graphicsRows] = await AppDataSource.query(`
-      SELECT * FROM airi_dev.graphic_style WHERE id = ?
-    `, [template.graphics_id]);
-
     const imageGenPayload = {
       projectId: 4228,
       designLibraryName: "Architecture",
-      designLibraryId: 31,
+      designLibraryId: firstTierRows.design_library_id,
       firstTierName: firstTierRows.name,
       firstTierId: firstTierRows.id,
       secondTierName: secondTierRows.name,
