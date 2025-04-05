@@ -2,66 +2,21 @@ import express from 'express';
 import multer from 'multer';
 import fs from 'fs';
 import { v4 as uuidv4 } from 'uuid';
-import { QdrantClient } from '@qdrant/js-client-rest';
-import { pipeline as transformersPipeline } from '@xenova/transformers';
 import path from 'path';
 import { fileURLToPath } from 'url';
 import { AppDataSource } from './db/connection.js';
+import { COLLECTION_NAME } from './createCollection.js';
+import { extractTextFromFile } from './createCollection.js';
+import { getEmbedding } from './createCollection.js';
+import { QdrantClient } from '@qdrant/js-client-rest';
 
+const qdrant = new QdrantClient({ host: "35.201.41.168", port: 6333 });
 const app = express();
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
 const upload = multer({ dest: 'uploads/' });
-const COLLECTION_NAME = "legal_documents";
-
-const qdrant = new QdrantClient({ host: "localhost", port: 6333 });
-
-let embeddingPipeline;
-(async () => {
-  try {
-    embeddingPipeline = await transformersPipeline(
-      "feature-extraction",
-      "Xenova/paraphrase-multilingual-MiniLM-L12-v2"
-    );
-    console.log("Multilingual model ready");
-  } catch (err) {
-    console.error("Failed to initialize model:", err);
-    process.exit(1);
-  }
-})();
-
-async function setupCollection() {
-  try {
-    await qdrant.getCollection(COLLECTION_NAME);
-    console.log("Collection already exists");
-  } catch {
-    await qdrant.createCollection(COLLECTION_NAME, {
-      vectors: { size: 384, distance: "Cosine" }
-    });
-    console.log("Collection created");
-  }
-}
-setupCollection();
-
-async function extractTextFromFile(filePath) {
-  try {
-    const text = fs.readFileSync(filePath, 'utf8');
-    return text;
-  } catch (error) {
-    console.error('Error reading text file:', error);
-    throw new Error('Failed to read text file');
-  }
-}
-
-async function getEmbedding(text) {
-  if (!embeddingPipeline) {
-    throw new Error("Embedding model not initialized");
-  }
-  const output = await embeddingPipeline(text, { pooling: 'mean' });
-  return Array.from(output.data);
-}
 
 app.post('/upload', upload.single('file'), async (req, res) => {
   try {
@@ -283,6 +238,32 @@ app.use((err, req, res, next) => {
   console.error('Unhandled error:', err);
   res.status(500).json({ error: 'Internal server error' });
 });
+
+// await setupCollection();
+// getPdfPages("sampleDocuments/sample3.pdf")
+// .then((pages) => {
+//   Object.entries(pages).forEach(async ([pageNumber, text]) => {
+//     console.log(`📄 Page ${pageNumber}:\n`);
+//     console.log(text.trim());
+//     const embedding = await getEmbedding(text.trim());
+//     const docId = uuidv4();
+
+//     await qdrant.upsert(COLLECTION_NAME, {
+//       points: [{
+//         id: docId,
+//         vector: embedding,
+//         payload: {
+//           text: text.trim(),
+//           filename: docId
+//         }
+//       }]
+//     });
+//     console.log('\n' + '='.repeat(40) + '\n');
+//   });
+// }).catch((err) => {
+//   console.error("❌ Error reading PDF:", err);
+// });
+
 
 app.use(express.static(path.join(__dirname, 'public')));
 
